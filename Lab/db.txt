@@ -1,0 +1,1 @@
+order_history(order_id 	user_id 	food_name 	total_price 	order_status 	ordered_at) and checked_out_foods ( checkout_id 	user_id food_id food_name quantity price checked_out_at ) and food (food_id 	Name 	Description 	Image 	Time)
