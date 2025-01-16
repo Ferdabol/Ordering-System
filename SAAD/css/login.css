@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #303433;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #FFF3DA;
+}
+
+body::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.side {
+    background: url(./images/bk.png) no-repeat;
+    background-size: 100% 102%;
+}
+
+.side img {
+    width: 70%;
+    max-width: 70%;
+    mix-blend-mode: color-dodge;
+}
+
+.login-container {
+    background-color: #DFCCFB;
+    max-width: 450px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    color:#BEADFA;
+}
+
+.separator {
+    width: 150px;
+    height: 4px;
+    background-color: #BEADFA;
+    margin: 24px;
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 28px;
+    margin-bottom: 30px;
+    color: #BEADFA;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.link a{
+    color: #e6e6e6;
+    margin: 10px;
+}
+
+.link a:hover{
+    color: #250303;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #333;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color   0.4s;
+}
+
+input:focus ~ i {
+    color: #843bc7;
+}
+
+button.submit {
+    color: #000000;
+    padding: 14px 64px;
+    margin: 20px auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: linear-gradient(to right, #9DDE8B, #E6FF94);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+button.submit:hover {
+    opacity: 0.7;
+    background: linear-gradient(to right, #9DDE8B);
+}
+
+/* ----  Responsiveness   ----  */
+@media (max-width: 780px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side {
+        display: none;
+    }
+}
