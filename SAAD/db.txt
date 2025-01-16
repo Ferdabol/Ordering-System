@@ -1,1 +1,0 @@
-order_history(order_id 	user_id  food_name 	total_price 	order_status 	ordered_at) and checked_out_foods (checkout_id 	user_id 	pricing_id 	food_name   quantity   checked_out_at ) and food (food_id 	Name 	Description 	Image 	Time) and food_size_pricing (pricing_id 	food_id 	size_id 	price) and size ( size_id 	size_name) 	
