@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p{
+    font-size: 14px;
+}
+
+.head-t{
+    position: fixed;
+    background-color: #1f1e1e;
+    color:rgb(255, 255, 255);
+    width: 95%;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin-left: 80px;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    color:rgb(56, 53, 53);
+    background-color: #FEF9E1;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background: #11101d;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.sidebar.active ~ .main-content {
+    left: 350px;
+    width:  calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: white;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: white;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover {
+    background: white;
+    color: #11101d;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .6rem;
+    text-align: center;
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar.active ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.user p {
+    color: white;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.stock h3 {
+    font-size: 25px;
+    text-align: center;
+    color: #f0f8ff;
+}
+
+.stock-info {
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 120px;
+    background-color: #11101d;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 25%;
+}
+
+.stock-info ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.stock-info li {
+    text-align: center;
+    flex: 1;
+    margin-bottom: 1px;
+    color: #f0f8ff;
+    font-weight: bold;
+}
+.stock-info ul li {
+    border-right: 2px solid #f0f8ff;
+    text-align: center;
+    padding: 10px 0;
+    height: 75px;
+}
+    
+.stock-info ul li:last-child {
+    border-right: none;
+}
+
+.stock-info .stock-number {
+    font-weight: bold;
+    font-size: 25px;
+    color: #f0f8ff;
+}
+
+.order-management {
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.order-management table {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+.order-management th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.order-management th {
+    background-color: #f0f8ff;
+}
