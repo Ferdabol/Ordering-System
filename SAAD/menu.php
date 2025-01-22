@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,27 +18,34 @@
     <input type="checkbox" id="cart">
     <label for="cart" class="label-cart"><span class="fa fa-shopping-cart"></span></label>
 
-    <h3 class="head-t">HUHUHUHUHU</h3>
+
+    <input type="checkbox" id="bell">
+    <label for="bell" class="label-bell"><i class="bx bx-bell"></i></label>
+
+    <h3 class="head-t">
+        fwaff
+    </h3>
+   
 
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class='bx bxl-codepen'></i>
-                <span>HUHUHUHUHU</span>
+                <img src="logo.png" alt="Logo">
+                <h3>M's Bilao</h3>
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
 
         <div class="user">
             <div>
-                <p class="bold">Ferd O.</p>
-                <p>Admin</p>
+                <p class="bold"><?php echo $_SESSION['userinfo']['Fname'] . ' ' . substr($_SESSION['userinfo']['Lname'], 0, 1) . '.'; ?></p>
+                <p>Customer</p>
             </div>
         </div>
         <ul>
             <li>
-                <a href="#">
+                <a href="homepage.php">
                     <i class="bx bxs-home"></i>
                     <span class="nav-item">Home</span>
                 </a>
@@ -55,7 +66,7 @@
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="#">
+                <a href="aboutus.php">
                     <i class="bx bxs-info-circle"></i>
                     <span class="nav-item">About</span>
                 </a>
@@ -77,7 +88,7 @@
     <div class="container">
         <div class="menu">
             <div class="menu-banner">
-                <img src="sample.jpg">
+                <img src="pics/sample.jpg">
             </div>
 
             <h3 class="menu-title">What we Offer</h3>
@@ -91,8 +102,6 @@
             
             <div class="menu-content">
                 <?php
-                    // Start the session
-                    session_start();
 
                     include("connection.php");
 
@@ -130,7 +139,7 @@
 
                         // Loop over the menu items and generate the HTML code
                         while ($row = $result->fetch_assoc()) {
-                            $price_range = number_format($row['min_price'], 2) . " - " . number_format($row['max_price'], 2) . "$";
+                            $price_range = number_format($row['min_price'], 2) . " - " . number_format($row['max_price'], 2) . "₱";
                             ?>
                             <div class="menu-item" data-name="<?php echo $row['Name']; ?>" data-price="<?php echo $price_range; ?>" data-image="<?php echo $row['Image']; ?>" data-food-id="<?php echo $row['food_id']; ?>">
                                 <img class="card-img" src="<?php echo $row['Image']; ?>">
@@ -163,9 +172,6 @@
             <div class="order-address">
                 <p>Address Delivery</p>
                 <h4><?php echo $_SESSION['userinfo']['Address']; ?></h4>
-            </div>
-            <div class="order-time">
-                <span class="fa fa-gear"></span> 30 mins <span class="fa fa-map-pin"></span>2 km
             </div>
 
             <div class="order-wrapper">
@@ -228,9 +234,6 @@
         <!-- Food Item Modal -->
         <div id="foodModal" data-food-id="1">
             <div class="modal-content">
-                <div class="title">
-                    <h2 class="food-menu">Food Menu</h2>
-                </div>
                 <img src="" class="modal-image" alt="Food Image">
                 <div class="modal-details">
                     <span class="close">&times;</span>
@@ -243,7 +246,11 @@
                     </div>
                     <div class="date">
                         <h2 class="date-name">Select a Date</h2>
-                        <input type="date" name="Date" placeholder="Date" min="2024-01-01" max="2024-12-31" value="NOW">
+                        <input type="date" name="Date" id="prepDate" min="2024-01-01" max="2024-12-31" value="NOW">
+                    </div>
+                    <div class="date">
+                        <h2 class="date-name">Quantity</h2>
+                        <input type="number" id="quantity" value="1" min="1">
                     </div>
                     <button id="addToCartBtn">Add to Cart</button>
                 </div>

@@ -26,18 +26,17 @@ section {
 }
 
 section.side {
-    background: url(./images/bk.png) no-repeat;
+    background: url(pics/logo.png) no-repeat;
     background-size: 100% 102%;
 }
 
 .side img {
     width: 70%;
     max-width: 70%;
-    mix-blend-mode: color-dodge;
 }
 
 .login-container {
-    background-color: #DFCCFB;
+    background-color: #a2a2bb;
     max-width: 450px;
     padding: 24px;
     display: flex;
@@ -127,7 +126,7 @@ button.submit {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    background: linear-gradient(to right, #9DDE8B, #E6FF94);
+    background: linear-gradient(to right, #c78bde, #d6b6e9);
     cursor: pointer;
     transition: opacity 0.4s;
 }

@@ -9,7 +9,7 @@ body{
     width: 100%;
     height: auto;
     color:rgb(56, 53, 53);
-    background-color: #FEF9E1;
+    background-color: #FBF5E5;
     font-family: sans-serif;
 }
 
@@ -17,10 +17,20 @@ p{
     font-size: 14px;
 }
 
+.label-bell{
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    z-index: 4;
+    cursor: pointer;
+    transform: scale(1.5);
+    color: white;
+}
+
 .head-t{
     position: fixed;
-    background-color: #1f1e1e;
-    color:rgb(255, 255, 255);
+    background-color: #190120;
+    color:#190120;
     width: 95%;
     text-align: center;
     padding: 15px 0px 15px 0px;
@@ -31,14 +41,13 @@ p{
     margin-left: 80px;
 }
 
-
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 80px;
-    background: #11101d;
+    background: #190120;
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
     z-index: 2;
@@ -231,6 +240,7 @@ input[type="submit"] {
     border-radius: 20px;
     color: rgb(0, 0, 0);
     background-color:  rgb(114, 97, 134);
+    margin-bottom: 20px;
 }
 
 input[type="submit"]:hover {
@@ -284,4 +294,15 @@ input[type="submit"]:hover {
     text-align: center;
     padding-top: 10px;
 }
+
+.additional-details ul li {
+    list-style-type: none;
+}
+
+.food-row:hover {
+    cursor: pointer;
+    background-color: rgba(91, 35, 136, 0.349); /* white with 20% opacity */
+    backdrop-filter: blur(5px);
+}
+
 

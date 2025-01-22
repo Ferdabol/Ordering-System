@@ -24,12 +24,23 @@ p{
     z-index: 4;
     cursor: pointer;
     transform: scale(1.5);
+    color: white;
+}
+
+.label-bell{
+    position: fixed;
+    top: 18px;
+    right: 55px;
+    z-index: 3;
+    cursor: pointer;
+    transform: scale(1.5);
+    color: white;
 }
 
 .head-t{
     position: fixed;
-    background-color: #1f1e1e;
-    color:rgb(255, 255, 255);
+    background-color: #190120;
+    color:#190120;
     width: 95%;
     text-align: center;
     padding: 15px 0px 15px 0px;
@@ -40,19 +51,17 @@ p{
     margin-left: 80px;
 }
 
-
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 80px;
-    background: #11101d;
+    background: #190120;
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
     z-index: 2;
 }
-
 .sidebar.active ~ .main-content {
     left: 350px;
     width:  calc(100% - 250px);
@@ -85,6 +94,11 @@ p{
     align-items: center;
     opacity: 0;
     pointer-events: none;
+}
+
+.sidebar .top .logo img{
+    height: 50px;
+    padding-right: 10px;
 }
 
 .sidebar.active .top .logo {
@@ -382,7 +396,7 @@ p{
 }
 
 #cart:checked ~ .label-cart {
-    color: lightgrey;
+    color: rgb(37, 37, 37);
 }
 
 #cart:not(:checked) ~ .container .menu {
@@ -391,10 +405,6 @@ p{
 
 #cart:not(:checked) ~ .container .menu-order {
     display: none;
-}
-
-#cart:checked ~ .logo {
-    padding-right: 0px;
 }
 
 .profile-container {
@@ -566,6 +576,7 @@ p{
     margin-top: 5px;
     border-collapse: collapse;
     margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .h-header {
@@ -579,32 +590,41 @@ p{
 
 .history-header td {
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 /* Food Modal Styles */
 #foodModal {
-    display: none;
     position: fixed;
-    z-index: 10;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 #foodModal .modal-content {
     display: flex;
+    flex-direction: row;
     background-color: white;
     margin: 10% auto;
     padding: 20px;
-    width: 50%;
+    width: 40%;
     border-radius: 10px;
 }
 
 #foodModal .modal-image {
-    width: 40%;
+    width: 100%;
     border-radius: 10px;
+}
+
+#foodModal .modal-details span {
+    float: right;
 }
 
 #foodModal .modal-details {

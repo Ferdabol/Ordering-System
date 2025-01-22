@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    color: rgb(56, 53, 53);
+    background-color: #FEF9E1; 
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 14px;
+}
+
+.label-bell{
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    z-index: 4;
+    cursor: pointer;
+    transform: scale(1.5);
+    color: white;
+}
+
+.head-t{
+    position: fixed;
+    background-color: #190120;
+    color:#190120;
+    width: 95%;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin-left: 80px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background: #190120;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.sidebar.active ~ .main-content {
+    left: 350px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: white;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: white;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar .top .logo img{
+    height: 50px;
+    padding-right: 10px;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.user p {
+    color: white;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover {
+    background: white;
+    color: #11101d;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .6rem;
+    text-align: center;
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar.active ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.container {
+    display: flex;
+    background-color:#FEF9E1;
+    color:black;
+    overflow: hidden;
+    width: calc(100% - 200px);
+    margin: 100px auto;  
+    position: relative;
+}
+
+.text-section {
+    padding: 40px;
+    flex: 1;
+}
+
+.text-section h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.text-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.text-section .badge {
+    display: inline-block;
+    background-color: #190120;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.text-section a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #222;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.text-section a:hover {
+    background-color: #190120;
+    color: white;
+}
+
+.image-section {
+    background-color: #FEF9E1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    z-index: 0;
+    height: 50px;
+}
+
+.image-section img {
+    width: 500px ;
+    border-radius: 5px;
+}
+
+
+
+.additional-section {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #190120;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.additional-section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.additional-section p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.additional-section .links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.additional-section .links a {
+    text-decoration: none;
+    color: white;
+    background-color: #444;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.additional-section .links a:hover {
+    background-color: #666;
+}
+
+.additional-section .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.additional-section .images img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+       
+    padding: 20px;
+    width:100%;
+    color: white;
+    text-align: center;
+    background-color: #190120;
+    
+    
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color:rgb(255, 255, 255);
+}
+
+.footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .social-links a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+
+.footer .social-links a:hover {
+    color: gold;
+}
+
+
+.testimonial-section {
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 1300px;
+    background-color:none;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+   
+}
+
+.testimonial-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.testimonial .author {
+    margin-top: 10px;
+    font-weight: bold;
+    color: gold;
+}
+
+.testimonial-section .images1 img {
+width: 500px;
+height: auto; 
+margin: 10px; 
+border-radius: 10px; 
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+

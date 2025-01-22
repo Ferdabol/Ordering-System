@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,27 +14,31 @@
 <body>
     <!-- Header -->
 
-    <h3 class="head-t">HUHUHUHUHU</h3>
+    <input type="checkbox" id="bell">
+    <label for="bell" class="label-bell"><i class="bx bx-bell"></i></label>
+
+    <h3 class="head-t" type="hidden">3wad</h3>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class='bx bxl-codepen'></i>
-                <span>HUHUHUHUHU</span>
+                <img src="pics/logo.png" alt="Logo">
+                <h3>M's Bilao</h3>
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
 
         <div class="user">
             <div>
-                <p class="bold">Ferd O.</p>
-                <p>Admin</p>
+                <p class="bold"><?php echo $_SESSION['userinfo']['Fname'] . ' ' . substr($_SESSION['userinfo']['Lname'], 0, 1) . '.'; ?></p>
+                <p>Customer</p>
             </div>
         </div>
         <ul>
             <li>
-                <a href="#">
+                <a href="homepage.php">
                     <i class="bx bxs-home"></i>
                     <span class="nav-item">Home</span>
                 </a>
@@ -38,21 +46,21 @@
             </li>
             <li>
                 <a href="menu.php">
-                    <i class="bx bx-list-check"></i>
+                    <i class="bx bx-food-menu"></i>
                     <span class="nav-item">Menu</span>
                 </a>
                 <span class="tooltip">Menu</span>
             </li>
             <li>
                 <a href="profile.php">
-                    <i class="bx bxs-shopping-bag"></i>
+                    <i class="bx bxs-smile"></i>
                     <span class="nav-item">Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="#">
-                    <i class="bx bxs-food-menu"></i>
+                <a href="aboutus.php">
+                    <i class="bx bxs-info-circle"></i>
                     <span class="nav-item">About</span>
                 </a>
                 <span class="tooltip">About</span>
@@ -71,28 +79,26 @@
     <div class="profile-container">
         <div class="profile">
             <div class="profile-header">
-                <img class="profile-img" src="sample.jpg">
+                <img class="profile-img" src="pics/sample.jpg">
                 <div class="profile-text-container">
-                    <h1 class="profile-tile">Ferdabol</h1>
-                    <p class="profile-email">tae@gmail.com</p>
+                    <h1 class="profile-tile"><?php echo $_SESSION['userinfo']['Fname'] . ' ' . substr($_SESSION['userinfo']['Lname'], 0, 1) . '.'; ?></h1>
+                    <p class="profile-email"><?php echo $_SESSION['userinfo']['Email']; ?></p>
                 </div>
             </div>
 
             <div class="account-info">               
                 <a href="profile.php" class="account-link"><span class="fa solid fa-user account-icon"></span>Account</a>
                 <a href="settings.php" class="account-link"><span class="fa solid fa-gear account-icon"></span>Settings</a>
-                <a href="#" class="account-link"><span class="fa solid fa-bell account-icon"></span>Notification</a>
                 <a href="orderhistory.php" class="account-link"><span class="fa solid fa-user account-icon"></span>Order History</a>
             </div>
         </div>
 
         <form class="account" method="post">
             <div class="account-header">
-                <h1 class="account-title">Account Settings</h1>
+                <h1 class="account-title">Account Profile</h1>
             </div>
 
             <?php
-                session_start();
                 include("connection.php");
                 
 

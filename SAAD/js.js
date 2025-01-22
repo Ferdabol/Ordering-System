@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('#foodModal .modal-image').src = image;
             document.querySelector('#foodModal .modal-name').textContent = name;
             document.querySelector('#foodModal .modal-description').textContent = description;
-            document.querySelector('#foodModal .modal-price').textContent = '$' + price.toFixed(2);
+            document.querySelector('#foodModal .modal-price').textContent = '₱' + price.toFixed(2);
             document.querySelector('#foodModal').setAttribute('data-food-id', foodId);
 
             fetch(`get-size.php?food_id=${foodId}`)
@@ -65,23 +65,36 @@ document.addEventListener('DOMContentLoaded', function () {
         var image = document.querySelector('#foodModal .modal-image').src;
         var pricingId = document.querySelector('input[name="size"]:checked')?.dataset.pricingId;
         var sizeName = document.querySelector('input[name="size"]:checked')?.parentNode.textContent.trim();
+        var prepDate = document.querySelector('#prepDate').value;
+        var quantity = parseInt(document.querySelector('#quantity').value);
 
         if (!pricingId) {
             alert('Please select a size.');
             return;
         }
 
+        if (!prepDate) {
+            alert('Please select a preparation date.');
+            return;
+        }
+
+        if (quantity < 1) {
+            alert('Quantity must be at least 1.');
+            return;
+        }
+
         var itemKey = `${name} (${sizeName})`;
 
         if (orderItems[itemKey]) {
-            orderItems[itemKey].quantity++;
+            orderItems[itemKey].quantity += quantity;
         } else {
             orderItems[itemKey] = {
                 pricing_id: pricingId,
                 name: itemKey,
                 price: price,
                 image: image,
-                quantity: 1
+                quantity: quantity,
+                prep_date: document.querySelector('#prepDate').value,
             };
         }
 
@@ -89,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
             foodId: document.querySelector('#foodModal').getAttribute('data-food-id'),
             pricingId: pricingId,
             sizeName: sizeName,
-            price: price
+            price: price,
+            prep_date: prepDate
         });
 
         updateOrderList(orderItems);
@@ -115,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        console.log(orderItems);
         fetch('checkout.php', {
             method: 'POST',
             headers: {
@@ -127,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(response => {
-            console.log('Parsed Response:', response);
             if (response.success) {
                 alert('Order placed successfully!');
                 localStorage.removeItem('orderItems');
@@ -143,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Checkout failed due to a network or server error.');
         });
     });
+    
 
     function updateOrderList(orderItems) {
         var html = '';
@@ -168,8 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('orderItems', JSON.stringify(orderItems));
 
         document.querySelector('#order-items').innerHTML = html;
-        document.querySelector('#subtotal').textContent = '$' + subtotal.toFixed(2);
-        document.querySelector('#tax').textContent = '$' + (subtotal * taxRate).toFixed(2);
-        document.querySelector('#total').textContent = '$' + (subtotal + deliveryFee).toFixed(2);
+        document.querySelector('#subtotal').textContent = '₱' + subtotal.toFixed(2);
+        document.querySelector('#tax').textContent = '₱' + (subtotal * taxRate).toFixed(2);
+        document.querySelector('#total').textContent = '₱' + (subtotal + deliveryFee).toFixed(2);
+
+        document.querySelector('.close').addEventListener('click', function () {
+            document.querySelector('#foodModal').style.display = 'none';
+            document.querySelector('#quantity').value = 1; 
+        });
     }
 });

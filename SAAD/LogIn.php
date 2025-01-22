@@ -2,26 +2,23 @@
     session_start();
     include("connection.php");
 
-    // Check if the login form has been submitted
     if(isset($_POST["login"])) {
         $email = $_POST["Email"];
         $password = $_POST["password"];
 
-        // Query the userinfo table to check if the email and password match
         $sql = "SELECT * FROM userinfo WHERE Email = '$email' AND Password = '$password'";
         $result = mysqli_query($conn, $sql);
 
-        // Check if a matching record is found
+       
         if(mysqli_num_rows($result) == 1) {
             // Fetch the user data from the result
             $row = mysqli_fetch_assoc($result);
 
             $_SESSION['userinfo'] = $row;
 
-            header("Location: profile.php");
+            header("Location: homepage.php");
             exit;
         } else {
-            // Display an error message if the email and password don't match
             $notice = "Invalid email or password";
         }
     }
@@ -39,12 +36,12 @@
 </head>
 <body background="profiles/tech.jpg">
     <section class="side">
-        <img src="profiles/logo_vector.png" alt="">
+        <img src="pics/logo.png" alt="">
     </section>
 
     <section class="main">
         <div class="login-container">
-            <p class="title">EWAN</p>
+            <p class="title">LOGIN</p>
             <div class="separator"></div>
             <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
 
@@ -59,6 +56,8 @@
                 </div>
                 <button class="submit" name="login">Login</button>
             </form>
+
+            <p class="register-message">Don't have an account yet? <a href="Register.php">Register</a></p>
 
             <?php if(isset($notice)) { ?>
                 <p style="color: red;"><?php echo $notice; ?></p>
