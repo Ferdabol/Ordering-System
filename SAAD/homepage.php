@@ -81,7 +81,7 @@
             <div class="badge">M'S BILAO</div>
             <h1>FRESHLY PREPARED BILAO FOR YOU</h1>
             <p>Bringing the smell and taste of your favorite Filipino dishes to your door. By fresh, we mean fresh...</p>
-            <a href="menu.php">Shop All Food</a>
+            <a href="menu.php">Shop Now</a>
         </div>
         <div class="image-section">
             <img src="pics/b.jpg" alt="Pastry Box">         

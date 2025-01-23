@@ -29,8 +29,8 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class='bx bxl-codepen'></i>
-                <span>HUHUHUHUHU</span>
+                <img src="pics/logo.png" alt="Logo">
+                <h3>M's Bilao</h3>
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
@@ -64,7 +64,7 @@
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="aboutus.html">
+                <a href="aboutus.php">
                     <i class="bx bxs-info-circle"></i>
                     <span class="nav-item">About</span>
                 </a>
@@ -89,10 +89,10 @@
 
     <section class="hero1">
         <div class="container">
-            <img src="pics/bilao" alt="Bread Header">
+            <img src="pics/bilao.jpg" alt="Bread Header">
             <div class="text-container">
-                <h1 class="display-4">Home Sweet Bakery</h1>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <h1 class="display-4">Savor the taste</h1>
+                <p class="lead">Savor the taste of tradition with our bilao business, serving up fresh, authentic Filipino dishes in a convenient, woven basket that's as much a part of the experience as the food itself.</p>
             </div>
         </div>
     </section>
@@ -101,8 +101,8 @@
 
     <section class="highlight-section">
         <div class="text-container">
-            <h2>Freshly Baked Bread Every Morning</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies ligula nec lectus accumsan luctus.</p>
+            <h2>Weave together the flavor</h2>
+            <p>Weave together flavor and culture with every bite, as our bilao business brings the classic Filipino feast to your doorstep, one beautifully crafted basket at a time.</p>
         </div>
         <img src="pics/beng.jpg" alt="Freshly Baked Bread">
     </section>
@@ -111,7 +111,7 @@
 <!-- Benefits Section -->
 <section class="benefits-section">
     <div class="container">
-        <h2 class="mb-3">Benefits of Breads</h2>
+        <h2 class="mb-3">Why Choose Us</h2>
         <div class="cards-container">
             <!-- Benefit 1 -->
             <div class="card">

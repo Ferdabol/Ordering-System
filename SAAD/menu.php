@@ -31,7 +31,7 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <img src="pics/logo.png" alt="Logo">
                 <h3>M's Bilao</h3>
             </div>
             <i class="bx bx-menu" id="btn"></i>
